@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tomoe <tomoe@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tomo <tomo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 11:33:27 by tomoe             #+#    #+#             */
-/*   Updated: 2022/05/13 20:05:43 by tomoe            ###   ########.fr       */
+/*   Updated: 2022/06/06 23:26:55 by tomo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_putendl_fd(char	*s, int fd)
 {
+	if (!s)
+		return ;
 	ft_putstr_fd(s, fd);
 	write(fd, "\n", 1);
 }

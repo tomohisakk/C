@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tomoe <tomoe@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tomo <tomo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 10:15:09 by tomoe             #+#    #+#             */
-/*   Updated: 2022/05/11 11:41:15 by tomoe            ###   ########.fr       */
+/*   Updated: 2022/06/06 23:25:18 by tomo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	unsigned int	i;
+	size_t	i;
 
 	i = 0;
 	if (!s || !f)

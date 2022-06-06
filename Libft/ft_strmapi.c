@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tomoe <tomoe@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tomo <tomo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 10:20:31 by tomoe             #+#    #+#             */
-/*   Updated: 2022/05/24 21:38:09 by tomoe            ###   ########.fr       */
+/*   Updated: 2022/06/06 23:25:17 by tomo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char			*str;
-	unsigned int	i;
+	char	*str;
+	size_t	i;
 
 	i = 0;
 	if (!s || !f)
