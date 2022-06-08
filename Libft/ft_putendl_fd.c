@@ -6,13 +6,13 @@
 /*   By: tomo <tomo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 11:33:27 by tomoe             #+#    #+#             */
-/*   Updated: 2022/06/06 23:26:55 by tomo             ###   ########.fr       */
+/*   Updated: 2022/06/08 17:34:20 by tomo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl_fd(char	*s, int fd)
+void	ft_putendl_fd(char *s, int fd)
 {
 	if (!s)
 		return ;

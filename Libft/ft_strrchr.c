@@ -6,7 +6,7 @@
 /*   By: tomo <tomo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 11:35:36 by tomoe             #+#    #+#             */
-/*   Updated: 2022/05/30 09:40:16 by tomo             ###   ########.fr       */
+/*   Updated: 2022/06/08 16:48:22 by tomo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ char	*ft_strrchr(const char *str, int c)
 	}
 	while (len_str >= 1)
 	{
-		if (str[len_str - 1] == char_c)
-			return ((char *)&str[len_str - 1]);
 		len_str--;
+		if (str[len_str] == char_c)
+			return ((char *)&str[len_str]);	
 	}
 	return (NULL);
 }

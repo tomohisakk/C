@@ -6,7 +6,7 @@
 /*   By: tomo <tomo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 11:03:38 by tomoe             #+#    #+#             */
-/*   Updated: 2022/05/30 09:33:55 by tomo             ###   ########.fr       */
+/*   Updated: 2022/06/08 17:06:03 by tomo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,11 @@ int	ft_atoi(const char *str)
 			flag_min = -1;
 		i++;
 	}
-	while (ft_isdigit(str[i]) == 1)
+	while (ft_isdigit(str[i]) != 0)
 	{
 		tmp = tmp * 10 + str[i] - '0';
 		i++;
 	}
-	ans = (int)tmp * flag_min;
+	ans = tmp * flag_min;
 	return (ans);
 }

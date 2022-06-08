@@ -6,7 +6,7 @@
 /*   By: tomo <tomo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 12:01:26 by tomoe             #+#    #+#             */
-/*   Updated: 2022/06/06 23:33:53 by tomo             ###   ########.fr       */
+/*   Updated: 2022/06/08 16:16:37 by tomo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,8 @@
 # define LIBFT_H
 
 # include <stddef.h>
-# include <stdlib.h>
-# include <stdio.h>
-# include <string.h>
 # include <unistd.h>
+# include <stdlib.h>
 # include <stdint.h>
 # include <limits.h>
 # include <errno.h>

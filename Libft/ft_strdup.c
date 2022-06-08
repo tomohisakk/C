@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tomoe <tomoe@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tomo <tomo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 11:36:33 by tomoe             #+#    #+#             */
-/*   Updated: 2022/05/21 19:30:34 by tomoe            ###   ########.fr       */
+/*   Updated: 2022/06/08 17:09:00 by tomo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,7 @@ char	*ft_strdup(const char *s)
 	i = 0;
 	ans = malloc((ft_strlen(s) + 1) * sizeof(char));
 	if (!ans)
-	{
-		errno = ENOMEM;
 		return (NULL);
-	}
 	while (s[i] != '\0')
 	{
 		ans[i] = s[i];

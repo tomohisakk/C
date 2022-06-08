@@ -6,7 +6,7 @@
 /*   By: tomo <tomo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 11:32:27 by tomoe             #+#    #+#             */
-/*   Updated: 2022/05/30 09:39:14 by tomo             ###   ########.fr       */
+/*   Updated: 2022/06/08 16:28:55 by tomo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	size_t			i;
-	unsigned char	*uchar_s1;
-	unsigned char	*uchar_s2;
+	size_t				i;
+	const unsigned char	*uchar_s1;
+	const unsigned char	*uchar_s2;
 
 	uchar_s1 = (unsigned char *)s1;
 	uchar_s2 = (unsigned char *)s2;

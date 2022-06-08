@@ -6,7 +6,7 @@
 /*   By: tomo <tomo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 11:32:15 by tomoe             #+#    #+#             */
-/*   Updated: 2022/05/30 09:39:45 by tomo             ###   ########.fr       */
+/*   Updated: 2022/06/08 17:02:09 by tomo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,10 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t s)
 	while (s1[i] != '\0' && i < s)
 	{
 		j = 0;
-		while (s1[i] == s2[j] && i < s)
+		while (s1[i + j] == s2[j] && i + j < s)
 		{
 			if (s2[j + 1] == '\0')
-				return ((char *)&s1[i - j]);
-			i++;
+				return ((char *)&s1[i]);
 			j++;
 		}
 		i++;
