@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Wed Jun  8 15:56:26 2022
+# Make data base, printed on Thu Jun  9 18:22:34 2022
 
 # Variables
 
@@ -55,7 +55,7 @@ PATH = /home/tomo/.vscode-server/bin/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5/bi
 # environment
 VSCODE_LOG_STACK = false
 # environment
-VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-97842f83-b0c6-4481-8446-e79ed71c4dd1.sock
+VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-ac8d56f3-f4a4-4877-991a-25846f04c0f6.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -69,7 +69,7 @@ PWD = /home/tomo/C
 # default
 .LOADED := 
 # environment
-WSL_INTEROP = /run/WSL/1334_interop
+WSL_INTEROP = /run/WSL/12_interop
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
@@ -213,6 +213,6 @@ GNUmakefile:
 # strcache performance: lookups = 16 / hit rate = 18%
 # hash-table stats:
 # Load=13/8192=0%, Rehash=0, Collisions=1/16=6%
-# Finished Make data base on Wed Jun  8 15:56:26 2022
+# Finished Make data base on Thu Jun  9 18:22:34 2022
 
  
