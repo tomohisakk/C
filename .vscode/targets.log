@@ -1,6 +1,4 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
-make: *** No rule to make target 'all'.  Stop.
-
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
@@ -8,7 +6,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Jun  9 18:22:34 2022
+# Make data base, printed on Sun Jun 12 23:36:27 2022
 
 # Variables
 
@@ -17,7 +15,7 @@ make: *** No rule to make target 'all'.  Stop.
 # automatic
 ?F = $(notdir $?)
 # environment
-WSLENV = VSCODE_WSL_EXT_LOCATION/up
+WSLENV = ELECTRON_RUN_AS_NODE/w:
 # default
 .SHELLFLAGS := -c
 # environment
@@ -35,7 +33,7 @@ SHELL = /bin/sh
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en","availableLanguages":{}}
 # environment
-_ = /home/tomo/.vscode-server/bin/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5/node
+_ = /mnt/d/Apps/Microsoft VS Code/bin/code
 # makefile
 MAKEFILE_LIST := 
 # 'override' directive
@@ -51,11 +49,11 @@ VSCODE_CWD = /mnt/d/Apps/Microsoft VS Code
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
-PATH = /home/tomo/.vscode-server/bin/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5/bin/remote-cli:/home/tomo/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Users/tomo/AppData/Local/Microsoft/WindowsApps:/mnt/d/Apps/Microsoft VS Code/bin:/snap/bin
+PATH = /home/tomo/.vscode-server/bin/4af164ea3a06f701fe3e89a2bcbb421d2026b68f/bin/remote-cli:/home/tomo/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files/WindowsApps/CanonicalGroupLimited.Ubuntu_2004.4.4.0_x64__79rhkp1fndgsc:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Users/tomo/AppData/Local/Microsoft/WindowsApps:/mnt/d/Apps/Microsoft VS Code/bin:/snap/bin
 # environment
 VSCODE_LOG_STACK = false
 # environment
-VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-ac8d56f3-f4a4-4877-991a-25846f04c0f6.sock
+VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-ef843b9d-cf80-4fa5-8546-b60bf3ef4dc2.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -69,7 +67,7 @@ PWD = /home/tomo/C
 # default
 .LOADED := 
 # environment
-WSL_INTEROP = /run/WSL/12_interop
+WSL_INTEROP = /run/WSL/9_interop
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
@@ -91,7 +89,7 @@ MAKE = $(MAKE_COMMAND)
 # default
 MAKECMDGOALS := all
 # environment
-SHLVL = 0
+SHLVL = 1
 # default
 MAKE_VERSION := 4.2.1
 # environment
@@ -99,7 +97,7 @@ USER = tomo
 # makefile
 .DEFAULT_GOAL := 
 # environment
-NAME = DESKTOP-1IV00D8
+NAME = Code
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
 # environment
@@ -146,8 +144,10 @@ TERM = xterm-256color
 VSCODE_EXTHOST_WILL_SEND_SOCKET = true
 # environment
 WSL_DISTRO_NAME = Ubuntu
+# environment
+MOTD_SHOWN = update-motd
 # variable set hash-table stats:
-# Load=67/1024=7%, Rehash=0, Collisions=4/89=4%
+# Load=68/1024=7%, Rehash=0, Collisions=4/90=4%
 
 # Pattern-specific Variable Values
 
@@ -155,7 +155,7 @@ WSL_DISTRO_NAME = Ubuntu
 
 # Directories
 
-# . (device 2064, inode 52968): 5 files, no impossibilities.
+# . (device 2064, inode 2977): 5 files, no impossibilities.
 
 # 5 files, no impossibilities in 1 directories.
 
@@ -213,6 +213,8 @@ GNUmakefile:
 # strcache performance: lookups = 16 / hit rate = 18%
 # hash-table stats:
 # Load=13/8192=0%, Rehash=0, Collisions=1/16=6%
-# Finished Make data base on Thu Jun  9 18:22:34 2022
+# Finished Make data base on Sun Jun 12 23:36:27 2022
 
  
+make: *** No rule to make target 'all'.  Stop.
+

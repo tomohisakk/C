@@ -6,7 +6,7 @@
 /*   By: tomo <tomo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 12:01:26 by tomoe             #+#    #+#             */
-/*   Updated: 2022/06/12 23:35:15 by tomo             ###   ########.fr       */
+/*   Updated: 2022/06/13 00:26:44 by tomo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ typedef struct s_list
 	void			*content;
 	struct s_list	*next;
 }				t_list;
-
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -63,6 +62,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 void	*ft_calloc(size_t nmemb, size_t size);
 char	*ft_strdup(const char *s);
 char	*ft_strjoin(char const *s1, char const *s2);
+//bonus
 t_list	*ft_lstnew(void *content);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 int		ft_lstsize(t_list *lst);
