@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tomo <tomo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/13 05:06:56 by tomo              #+#    #+#             */
-/*   Updated: 2022/06/14 02:16:45 by tomo             ###   ########.fr       */
+/*   Created: 2022/05/09 11:32:27 by tomoe             #+#    #+#             */
+/*   Updated: 2022/06/08 16:28:55 by tomo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <limits.h>
-# include <stdarg.h>
-# include <stdbool.h>
-# include "libft/libft.h"
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
+{
+	size_t				i;
+	const unsigned char	*uchar_s1;
+	const unsigned char	*uchar_s2;
 
-int	ft_printf(const char *format, ...);
-int ft_putchar(char c);
-int ft_putstr(char *str);
-int ft_putptr(void *ptr);
-int	ft_putint(int num);
-int ft_putuint(unsigned int num);
-int	put_basenum(unsigned int num, char format);
-
-#endif
+	uchar_s1 = (unsigned char *)s1;
+	uchar_s2 = (unsigned char *)s2;
+	if (n == 0)
+		return (0);
+	i = 0;
+	while (uchar_s1[i] == uchar_s2[i])
+	{
+		if (i + 1 == n)
+			return (0);
+		i++;
+	}
+	return (uchar_s1[i] - uchar_s2[i]);
+}

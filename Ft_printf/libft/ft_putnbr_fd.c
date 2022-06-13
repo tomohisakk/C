@@ -1,30 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tomo <tomo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/13 05:06:56 by tomo              #+#    #+#             */
-/*   Updated: 2022/06/14 02:16:45 by tomo             ###   ########.fr       */
+/*   Created: 2022/05/09 11:33:46 by tomoe             #+#    #+#             */
+/*   Updated: 2022/06/06 23:32:47 by tomo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <limits.h>
-# include <stdarg.h>
-# include <stdbool.h>
-# include "libft/libft.h"
+void	ft_putnbr_fd(int n, int fd)
+{
+	char	c;
+	int		i;
+	long	num;
 
-int	ft_printf(const char *format, ...);
-int ft_putchar(char c);
-int ft_putstr(char *str);
-int ft_putptr(void *ptr);
-int	ft_putint(int num);
-int ft_putuint(unsigned int num);
-int	put_basenum(unsigned int num, char format);
-
-#endif
+	num = n;
+	i = 1;
+	if (n < 0)
+	{
+		num *= -1;
+		write(fd, "-", 1);
+	}
+	while (n / 10 != 0)
+	{
+		n /= 10;
+		i *= 10;
+	}
+	while (i > 0)
+	{
+		c = '0' + (num / i);
+		write(fd, &c, 1);
+		num -= (num / i) * i;
+		i /= 10;
+	}
+}

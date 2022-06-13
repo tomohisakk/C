@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tomo <tomo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/13 05:06:56 by tomo              #+#    #+#             */
-/*   Updated: 2022/06/14 02:16:45 by tomo             ###   ########.fr       */
+/*   Created: 2022/06/12 23:55:53 by tomo              #+#    #+#             */
+/*   Updated: 2022/06/13 00:00:18 by tomo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <limits.h>
-# include <stdarg.h>
-# include <stdbool.h>
-# include "libft/libft.h"
+void	ft_lstadd_back(t_list **lst, t_list *new)
+{
+	t_list	*end_lst;
 
-int	ft_printf(const char *format, ...);
-int ft_putchar(char c);
-int ft_putstr(char *str);
-int ft_putptr(void *ptr);
-int	ft_putint(int num);
-int ft_putuint(unsigned int num);
-int	put_basenum(unsigned int num, char format);
-
-#endif
+	if (lst)
+	{
+		end_lst = *lst;
+		if (!(*lst))
+			*lst = new;
+		else
+		{
+			while (end_lst->next)
+				end_lst = end_lst->next;
+			end_lst->next = new;
+		}
+	}
+}

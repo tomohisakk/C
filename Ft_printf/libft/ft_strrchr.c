@@ -1,30 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tomo <tomo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/13 05:06:56 by tomo              #+#    #+#             */
-/*   Updated: 2022/06/14 02:16:45 by tomo             ###   ########.fr       */
+/*   Created: 2022/05/11 11:35:36 by tomoe             #+#    #+#             */
+/*   Updated: 2022/06/09 18:27:43 by tkawakam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <limits.h>
-# include <stdarg.h>
-# include <stdbool.h>
-# include "libft/libft.h"
+char	*ft_strrchr(const char *str, int c)
+{
+	char	char_c;
+	size_t	len_str;
 
-int	ft_printf(const char *format, ...);
-int ft_putchar(char c);
-int ft_putstr(char *str);
-int ft_putptr(void *ptr);
-int	ft_putint(int num);
-int ft_putuint(unsigned int num);
-int	put_basenum(unsigned int num, char format);
-
-#endif
+	len_str = ft_strlen(str);
+	char_c = (char)c;
+	if (char_c == '\0')
+	{
+		while (*str != '\0')
+			str++;
+		return ((char *)str);
+	}
+	while (len_str >= 1)
+	{
+		len_str--;
+		if (str[len_str] == char_c)
+			return ((char *)&str[len_str]);
+	}
+	return (NULL);
+}

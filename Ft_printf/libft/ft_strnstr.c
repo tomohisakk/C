@@ -1,30 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tomo <tomo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/13 05:06:56 by tomo              #+#    #+#             */
-/*   Updated: 2022/06/14 02:16:45 by tomo             ###   ########.fr       */
+/*   Created: 2022/05/11 11:32:15 by tomoe             #+#    #+#             */
+/*   Updated: 2022/06/08 17:02:09 by tomo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <limits.h>
-# include <stdarg.h>
-# include <stdbool.h>
-# include "libft/libft.h"
+char	*ft_strnstr(const char *s1, const char *s2, size_t s)
+{
+	size_t	i;
+	size_t	j;
 
-int	ft_printf(const char *format, ...);
-int ft_putchar(char c);
-int ft_putstr(char *str);
-int ft_putptr(void *ptr);
-int	ft_putint(int num);
-int ft_putuint(unsigned int num);
-int	put_basenum(unsigned int num, char format);
-
-#endif
+	if (ft_strlen(s2) == 0)
+		return ((char *)s1);
+	if (s == 0)
+		return (NULL);
+	i = 0;
+	while (s1[i] != '\0' && i < s)
+	{
+		j = 0;
+		while (s1[i + j] == s2[j] && i + j < s)
+		{
+			if (s2[j + 1] == '\0')
+				return ((char *)&s1[i]);
+			j++;
+		}
+		i++;
+	}
+	return (NULL);
+}
