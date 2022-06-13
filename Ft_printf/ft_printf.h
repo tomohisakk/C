@@ -6,7 +6,7 @@
 /*   By: tomo <tomo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 05:06:56 by tomo              #+#    #+#             */
-/*   Updated: 2022/06/13 05:12:10 by tomo             ###   ########.fr       */
+/*   Updated: 2022/06/13 19:56:06 by tomo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define FT_PRINTF_H
 
 # include <stdlib.h>
-# include <unidtd.h>
+# include <unistd.h>
 # include <limits.h>
 # include <stdarg.h>
 # include <stdbool.h>

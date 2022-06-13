@@ -6,7 +6,7 @@
 /*   By: tomo <tomo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 04:47:59 by tomo              #+#    #+#             */
-/*   Updated: 2022/06/13 05:47:40 by tomo             ###   ########.fr       */
+/*   Updated: 2022/06/13 19:53:48 by tomo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ static int	put_basenum(size_t nb, char base, char c)
 	if (!nb)
 	{
 		if (c == 'p')
-			return (write(STDOUT_FILENO, "0×0", 3));
+			return (write(STDOUT_FILENO, "0x0", 3));
 		return (write(STDOUT_FILENO, '0', 1));
 	}
 	i = 0;
