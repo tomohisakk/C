@@ -6,7 +6,7 @@
 /*   By: tomo <tomo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 04:47:59 by tomo              #+#    #+#             */
-/*   Updated: 2022/06/14 02:27:21 by tomo             ###   ########.fr       */
+/*   Updated: 2022/06/15 04:42:24 by tomo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int	compute_format(char format, va_list args)
 {
 	if (format == 'c')
-		return (ft_putchar(va_arg(args, int)));
+		return (write(STDOUT_FILENO, va_arg(args, int), 1));
 	else if (format == 's')
 		return (ft_putstr(va_arg(args, char *)));
 	else if (format == 'd' || format == 'i')
@@ -30,7 +30,7 @@ static int	compute_format(char format, va_list args)
 	else if (format == 'x' || format == 'X')
 		return (put_basenum(va_arg(args, unsigned int), format));
 	else if (format == '%')
-		return (ft_putchar('%'));
+		return (write(STDOUT_FILENO, '%', 1));
 	return (0);
 }
 

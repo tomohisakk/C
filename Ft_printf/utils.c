@@ -6,34 +6,29 @@
 /*   By: tomo <tomo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 00:40:23 by tomo              #+#    #+#             */
-/*   Updated: 2022/06/14 02:20:11 by tomo             ###   ########.fr       */
+/*   Updated: 2022/06/15 04:42:42 by tomo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "ft_printf.h"
+#include "ft_printf.h"
 
-int ft_putchar(char c)
-{
-	return (write(STDOUT_FILENO, &c, 1));
-}
-
-int ft_putstr(char *str)
+int	ft_putstr(char *str)
 {
 	if (!str)
 		return (ft_putstr("(null)"));
 	return (write(STDOUT_FILENO, str, ft_strlen(str)));
 }
 
-int ft_putptr(void *ptr)
+int	ft_putptr(void *ptr)
 {
-	unsigned long long	hex;
+	unsigned long long	num;
 	int					len;
 
-	hex = (unsigned long long)ptr;
+	num = (unsigned long long)ptr;
 	len = 0;
-	if (hex >= 16)
-		len += ft_putptr((void *)(hex / 16));
-	len += ft_putchar("0123456789abcdef"[hex % 16]);
+	if (num >= 16)
+		len += ft_putptr((void *)(num / 16));
+	len += write(STDOUT_FILENO, &"0123456789abcdef"[num % 16], 1);
 	return (len);
 }
 
@@ -48,12 +43,12 @@ int	ft_putint(int num)
 	return (len);
 }
 
-int ft_putuint(unsigned int num)
+int	ft_putuint(unsigned int num)
 {
 	int	len;
 
-	len  = 0;
-	if (num >= 10)	
+	len = 0;
+	if (num >= 10)
 		len += ft_putuint(num / 10);
 	len += write(STDOUT_FILENO, &"0123456789"[num % 10], 1);
 	return (len);
@@ -67,8 +62,8 @@ int	put_basenum(unsigned int num, char format)
 	if (num >= 16)
 		len += put_basenum(num / 16, format);
 	if (format == 'x')
-		len += ft_putchar("0123456789abcdef"[num % 16]);
+		len += write(STDOUT_FILENO, &"0123456789abcdef"[num % 16], 1);
 	else if (format == 'X')
-		len += ft_putchar("0123456789ABCDEF"[num % 16]);
+		len += write(STDOUT_FILENO, &"0123456789ABCDEF"[num % 16], 1);
 	return (len);
 }
