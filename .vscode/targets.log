@@ -1,4 +1,6 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+make: *** No rule to make target 'all'.  Stop.
+
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
@@ -6,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sun Jun 12 23:36:27 2022
+# Make data base, printed on Tue Jun 14 02:00:15 2022
 
 # Variables
 
@@ -53,7 +55,7 @@ PATH = /home/tomo/.vscode-server/bin/4af164ea3a06f701fe3e89a2bcbb421d2026b68f/bi
 # environment
 VSCODE_LOG_STACK = false
 # environment
-VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-ef843b9d-cf80-4fa5-8546-b60bf3ef4dc2.sock
+VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-545b8b73-1190-4cae-962a-4b1739ffa1c1.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -77,7 +79,7 @@ LESSCLOSE = /usr/bin/lesspipe %s %s
 # environment
 LOGNAME = tomo
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # automatic
@@ -144,10 +146,8 @@ TERM = xterm-256color
 VSCODE_EXTHOST_WILL_SEND_SOCKET = true
 # environment
 WSL_DISTRO_NAME = Ubuntu
-# environment
-MOTD_SHOWN = update-motd
 # variable set hash-table stats:
-# Load=68/1024=7%, Rehash=0, Collisions=4/90=4%
+# Load=67/1024=7%, Rehash=0, Collisions=4/89=4%
 
 # Pattern-specific Variable Values
 
@@ -155,9 +155,9 @@ MOTD_SHOWN = update-motd
 
 # Directories
 
-# . (device 2064, inode 2977): 5 files, no impossibilities.
+# . (device 2064, inode 43969): 6 files, no impossibilities.
 
-# 5 files, no impossibilities in 1 directories.
+# 6 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -207,14 +207,12 @@ GNUmakefile:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 13 / storage = 109 B / avg = 8 B
-# current buf: size = 8162 B / used = 109 B / count = 13 / avg = 8 B
+# strcache buffers: 1 (0) / strings = 14 / storage = 119 B / avg = 8 B
+# current buf: size = 8162 B / used = 119 B / count = 14 / avg = 8 B
 
-# strcache performance: lookups = 16 / hit rate = 18%
+# strcache performance: lookups = 17 / hit rate = 17%
 # hash-table stats:
-# Load=13/8192=0%, Rehash=0, Collisions=1/16=6%
-# Finished Make data base on Sun Jun 12 23:36:27 2022
+# Load=14/8192=0%, Rehash=0, Collisions=1/17=6%
+# Finished Make data base on Tue Jun 14 02:00:15 2022
 
  
-make: *** No rule to make target 'all'.  Stop.
-
