@@ -6,7 +6,7 @@
 /*   By: tomo <tomo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 04:47:59 by tomo              #+#    #+#             */
-/*   Updated: 2022/06/15 04:42:24 by tomo             ###   ########.fr       */
+/*   Updated: 2022/06/15 05:03:23 by tkawakam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,13 @@
 
 static int	compute_format(char format, va_list args)
 {
+	unsigned char	uchar;
+
 	if (format == 'c')
-		return (write(STDOUT_FILENO, va_arg(args, int), 1));
+	{
+		uchar = (unsigned char)va_arg(args, int);
+		return (write(STDOUT_FILENO, &uchar, 1));
+	}
 	else if (format == 's')
 		return (ft_putstr(va_arg(args, char *)));
 	else if (format == 'd' || format == 'i')
@@ -30,7 +35,7 @@ static int	compute_format(char format, va_list args)
 	else if (format == 'x' || format == 'X')
 		return (put_basenum(va_arg(args, unsigned int), format));
 	else if (format == '%')
-		return (write(STDOUT_FILENO, '%', 1));
+		return (write(STDOUT_FILENO, "%", 1));
 	return (0);
 }
 
@@ -38,7 +43,7 @@ int	ft_printf(const char *format, ...)
 {
 	int		len;
 	int		i;
-	va_list	args;	
+	va_list	args;
 
 	len = 0;
 	i = 0;
