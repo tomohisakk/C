@@ -6,7 +6,7 @@
 /*   By: tomo <tomo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 04:47:59 by tomo              #+#    #+#             */
-/*   Updated: 2022/06/15 05:03:23 by tkawakam         ###   ########.fr       */
+/*   Updated: 2022/06/16 03:39:07 by tomo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static int	compute_format(char format, va_list args)
 	else if (format == 'x' || format == 'X')
 		return (put_basenum(va_arg(args, unsigned int), format));
 	else if (format == '%')
-		return (write(STDOUT_FILENO, "%", 1));
+		return (write(STDOUT_FILENO, '%', 1));
 	return (0);
 }
 
