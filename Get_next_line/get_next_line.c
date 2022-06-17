@@ -6,14 +6,31 @@
 /*   By: tomo <tomo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 00:07:31 by tomo              #+#    #+#             */
-/*   Updated: 2022/06/16 04:43:22 by tomo             ###   ########.fr       */
+/*   Updated: 2022/06/17 13:29:29 by tomo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include<unistd.h>
+#include <unistd.h>
+#include <fcntl.h>
 
+char	*ft_strdup(const char *s)
+{
+	char	*ans;
+	size_t	i;
 
+	i = 0;
+	ans = malloc((ft_strlen(s) + 1) * sizeof(char));
+	if (!ans)
+		return (NULL);
+	while (s[i] != '\0')
+	{
+		ans[i] = s[i];
+		i++;
+	}
+	ans[i] = '\0';
+	return (ans);
+}
 
 static void	restore_left_str(char **left_str)
 {
@@ -29,7 +46,7 @@ static void	restore_left_str(char **left_str)
 		free(tmp);
 		return ;
 	}
-	free(left_str);
+	free(*left_str);
 	*left_str = tmp;
 }
 
@@ -40,24 +57,10 @@ static void	compute_next_line(char **str, char *left_str)
 	i = 0;
 	while (left_str[i] && left_str[i] != '\n')
 		i++;
-	str = malloc(sizeof(char) * (i + 1));
+	*str = malloc(sizeof(char) * (i + 1));
 	if (!str)
 		return ;
-	ft_strlcat(*str, left_str, i + 1);
-}
-
-static char	*strjoin(char const *s1, char const *s2)
-{
-	char	*ans;
-	size_t	len_ans;
-
-	len_ans = ft_strlen(s1) + ft_strlen(s2) + 1;
-	ans = malloc(sizeof(char) * len_ans);
-	if (!ans)
-		return (NULL);
-	ft_strlcpy(ans, s1, len_ans);
-	ft_strlcat(ans, s2, len_ans);
-	return (ans);
+	ft_strlcpy(*str, left_str, i + 1);
 }
 
 static char	*compute_left_str(char *left_str, int fd)
@@ -69,10 +72,8 @@ static char	*compute_left_str(char *left_str, int fd)
 	if (!buffer)
 		return (NULL);
 	success_size = 1;
-	printf("okok");
-	while (success_size > 0 && !ft_strchr(left_str, '\n'))
+	while (success_size != 0 && ft_strchr(left_str, '\n') == NULL)
 	{
-		printf("okok");
 		success_size = read(fd, buffer, BUFFER_SIZE);
 		if (success_size == -1)
 		{
@@ -80,9 +81,7 @@ static char	*compute_left_str(char *left_str, int fd)
 			return (NULL);
 		}
 		buffer[success_size] = '\0';
-		printf("okok");
-		left_str = strjoin(left_str, buffer);
-		printf("okok");
+		left_str = ft_strjoin(left_str, buffer);
 	}
 	free(buffer);
 	return (left_str);
@@ -95,25 +94,22 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	printf("okok");
 	left_str = compute_left_str(left_str, fd);
 	if (!left_str)
 		return (NULL);
-	printf("okok");
 	compute_next_line(&str, left_str);
 	restore_left_str(&left_str);
 	return (str);
 }
-
-
-#include <fcntl.h>
+/*
 int main(void)
 {
 	int		fd;
 
-	printf("okok\n");
+	//printf("okok\n");
 	fd = open("foo.txt", O_RDONLY, 0);
-	printf("okok");
+	//printf("fd: %d\n", fd);
 	printf("%s", get_next_line(fd));
 	return (0);
 }
+*/

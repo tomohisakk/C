@@ -6,7 +6,7 @@
 /*   By: tomo <tomo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 03:40:17 by tomo              #+#    #+#             */
-/*   Updated: 2022/06/16 04:45:42 by tomo             ###   ########.fr       */
+/*   Updated: 2022/06/17 13:29:06 by tomo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ static void	*ft_memcpy(void *dest, const void *src, size_t n)
 	return (dest);
 }
 
-
 size_t	ft_strlcpy(char *dest, const char *src, size_t n)
 {
 	size_t	len_src;
@@ -56,46 +55,6 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t n)
 		dest[n - 1] = '\0';
 	}
 	return (len_src);
-}
-
-size_t	ft_strlcat(char *dest, const char *src, size_t size)
-{
-	size_t	i;
-	size_t	len_dest;
-	size_t	len_src;
-
-	len_src = ft_strlen(src);
-	if (!dest)
-		return (len_src + size);
-	len_dest = ft_strlen(dest);
-	if (size <= len_dest)
-		return (len_src + size);
-	i = 0;
-	while (src[i] != '\0' && len_dest + i + 1 < size)
-	{
-		dest[len_dest + i] = src[i];
-		i++;
-	}
-	dest[len_dest + i] = '\0';
-	return (len_dest + len_src);
-}
-
-char	*ft_strdup(const char *s)
-{
-	char	*ans;
-	size_t	i;
-
-	i = 0;
-	ans = malloc((ft_strlen(s) + 1) * sizeof(char));
-	if (!ans)
-		return (NULL);
-	while (s[i] != '\0')
-	{
-		ans[i] = s[i];
-		i++;
-	}
-	ans[i] = '\0';
-	return (ans);
 }
 
 char	*ft_strchr(const char *str, int c)
@@ -116,3 +75,23 @@ char	*ft_strchr(const char *str, int c)
 	return (NULL);
 }
 
+char	*ft_strjoin(char const *s1, char const *s2)
+{
+	char	*ans;
+	size_t	len_ans;
+
+	if (!s1 && !s2)
+		return (NULL);
+	else if (!s1)
+		return (ft_strdup(s2));
+	else if (!s2)
+		return (ft_strdup(s1));
+	len_ans = ft_strlen(s1) + ft_strlen(s2) + 1;
+	ans = malloc(sizeof(char) * len_ans);
+	if (!ans)
+		return (NULL);
+	ft_strlcpy(ans, s1, len_ans);
+	ft_strlcpy(ans, s1, len_ans);
+	ans[len_ans] = '\0';
+	return (ans);
+}
