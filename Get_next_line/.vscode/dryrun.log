@@ -1,0 +1,6 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/tomo/C/Get_next_line'
+make: Leaving directory '/home/tomo/C/Get_next_line'
+ 
+make: *** No targets specified and no makefile found.  Stop.
+

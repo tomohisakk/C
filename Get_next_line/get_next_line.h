@@ -6,7 +6,7 @@
 /*   By: tomo <tomo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 00:07:47 by tomo              #+#    #+#             */
-/*   Updated: 2022/06/17 13:24:29 by tomo             ###   ########.fr       */
+/*   Updated: 2022/06/18 06:27:39 by tomo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include <stdlib.h>
 # include <stdio.h>
 
+char	*get_next_line(int fd);
 char	*ft_strdup(const char *s);
 char	*ft_strchr(const char *str, int c);
 size_t	ft_strlcpy(char *dest, const char *src, size_t n);

@@ -6,7 +6,7 @@
 /*   By: tomo <tomo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 00:07:31 by tomo              #+#    #+#             */
-/*   Updated: 2022/06/17 13:29:29 by tomo             ###   ########.fr       */
+/*   Updated: 2022/06/20 15:55:55 by tomo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,74 +14,70 @@
 #include <unistd.h>
 #include <fcntl.h>
 
-char	*ft_strdup(const char *s)
-{
-	char	*ans;
-	size_t	i;
-
-	i = 0;
-	ans = malloc((ft_strlen(s) + 1) * sizeof(char));
-	if (!ans)
-		return (NULL);
-	while (s[i] != '\0')
-	{
-		ans[i] = s[i];
-		i++;
-	}
-	ans[i] = '\0';
-	return (ans);
-}
-
-static void	restore_left_str(char **left_str)
+static char	*restore_left_str(char *left_str)
 {
 	size_t	i;
 	char	*tmp;
 
 	i = 0;
-	while (!*left_str[i] && *left_str[i] != '\n')
+	while (left_str[i] != '\0' && left_str[i] != '\n')
 		i++;
-	tmp = ft_strdup(*left_str);
+	if (left_str[i] == '\n')
+		i++;
+	tmp = ft_strdup(&left_str[i]);
+	free(left_str);
 	if (!tmp)
-	{
-		free(tmp);
-		return ;
-	}
-	free(*left_str);
-	*left_str = tmp;
+		return (NULL);
+	left_str = tmp;
+	return (left_str);
 }
 
-static void	compute_next_line(char **str, char *left_str)
+static char	*compute_next_line(char *left_str)
 {
 	size_t	i;
+	char	*str;
 
 	i = 0;
-	while (left_str[i] && left_str[i] != '\n')
+	while (left_str[i] != '\0' && left_str[i] != '\n')
 		i++;
-	*str = malloc(sizeof(char) * (i + 1));
+	if (left_str[i] == '\n')
+		i++;
+	str = malloc(sizeof(char) * (i + 1));
 	if (!str)
-		return ;
-	ft_strlcpy(*str, left_str, i + 1);
+		return(NULL);
+	ft_strlcpy(str, left_str, i + 1);
+	return (str);
 }
 
 static char	*compute_left_str(char *left_str, int fd)
 {
 	char	*buffer;
 	ssize_t	success_size;
+	char	*tmp;
 
 	buffer = malloc((BUFFER_SIZE + 1) * sizeof(char));
 	if (!buffer)
 		return (NULL);
 	success_size = 1;
-	while (success_size != 0 && ft_strchr(left_str, '\n') == NULL)
+	while (success_size > 0 && ft_strchr(left_str, '\n') == NULL)
 	{
 		success_size = read(fd, buffer, BUFFER_SIZE);
-		if (success_size == -1)
+		if (success_size == -1 ||  (success_size == 0 && left_str[0] == '\0'))
 		{
 			free(buffer);
+			free(left_str);
 			return (NULL);
 		}
 		buffer[success_size] = '\0';
-		left_str = ft_strjoin(left_str, buffer);
+		tmp = ft_strjoin(buffer, left_str);
+		if (!tmp)
+		{
+			free(buffer);
+			free(left_str);
+			return (NULL);
+		}
+		free(left_str);
+		left_str = tmp;
 	}
 	free(buffer);
 	return (left_str);
@@ -94,21 +90,41 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
+	if (!left_str)
+	{
+		left_str = ft_strdup("");
+		if (!left_str)
+			return (NULL);
+	}
 	left_str = compute_left_str(left_str, fd);
 	if (!left_str)
 		return (NULL);
-	compute_next_line(&str, left_str);
-	restore_left_str(&left_str);
+	str = compute_next_line(left_str);
+	if(!str)
+	{
+		free(left_str);
+		return (NULL);
+	}
+	left_str = restore_left_str(left_str);
+	if (!left_str)
+	{
+		free(str);
+		return (NULL);
+	}
 	return (str);
 }
+
 /*
 int main(void)
 {
 	int		fd;
 
 	//printf("okok\n");
-	fd = open("foo.txt", O_RDONLY, 0);
+	fd = open("foo", O_RDONLY, 0);
 	//printf("fd: %d\n", fd);
+	printf("%s", get_next_line(fd));
+	printf("%s", get_next_line(fd));
+	printf("%s", get_next_line(fd));
 	printf("%s", get_next_line(fd));
 	return (0);
 }
