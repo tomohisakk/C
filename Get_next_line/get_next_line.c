@@ -6,7 +6,7 @@
 /*   By: tomo <tomo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 00:07:31 by tomo              #+#    #+#             */
-/*   Updated: 2022/06/23 00:48:02 by tomo             ###   ########.fr       */
+/*   Updated: 2022/06/25 10:47:00 by tkawakam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,12 @@ static char	*restore_left_str(char *left_str)
 	i = 0;
 	while (left_str[i] != '\0' && left_str[i] != '\n')
 		i++;
-	if (left_str[i] == '\n')
-		i++;
+	if (!left_str[i])
+	{
+		free(left_str);
+		return (NULL);
+	}
+	i++;
 	tmp = ft_strdup(&left_str[i]);
 	free(left_str);
 	if (!tmp)
@@ -40,13 +44,22 @@ static char	*compute_next_line(char *left_str)
 	i = 0;
 	while (left_str[i] != '\0' && left_str[i] != '\n')
 		i++;
-	if (left_str[i] == '\n')
-		i++;
-	str = malloc(sizeof(char) * (i + 1));
+	str = malloc(sizeof(char) * (i + 2));
 	if (!str)
 		return(NULL);
-	ft_strlcpy(str, left_str, i + 1);
-	return (str);
+	i = 0;
+	while (left_str[i])
+	{
+		str[i] = left_str[i];
+		if (str[i] == '\n')
+		{
+			i++;
+			break ;
+		}
+		i++;
+	}
+	str[i] = '\0';
+	return(str);
 }
 
 static char	*compute_left_str(char *left_str, int fd)
@@ -59,7 +72,7 @@ static char	*compute_left_str(char *left_str, int fd)
 	if (!buffer)
 		return (NULL);
 	success_size = 1;
-	while (success_size > 0 && ft_strchr(left_str, '\n') == NULL)
+	while (!ft_strchr(left_str, '\n') && success_size != 0)
 	{
 		success_size = read(fd, buffer, BUFFER_SIZE);
 		if (success_size == -1 ||  (success_size == 0 && left_str[0] == '\0'))
@@ -69,7 +82,7 @@ static char	*compute_left_str(char *left_str, int fd)
 			return (NULL);
 		}
 		buffer[success_size] = '\0';
-		tmp = ft_strjoin(buffer, left_strx);
+		tmp = ft_strjoin(left_str, buffer);
 		if (!tmp)
 		{
 			free(buffer);
@@ -106,11 +119,6 @@ char	*get_next_line(int fd)
 		return (NULL);
 	}
 	left_str = restore_left_str(left_str);
-	if (!left_str)
-	{
-		free(str);
-		return (NULL);
-	}
 	return (str);
 }
 
