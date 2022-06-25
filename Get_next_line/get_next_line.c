@@ -6,7 +6,7 @@
 /*   By: tomo <tomo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 00:07:31 by tomo              #+#    #+#             */
-/*   Updated: 2022/06/20 15:55:55 by tomo             ###   ########.fr       */
+/*   Updated: 2022/06/23 00:48:02 by tomo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ static char	*compute_left_str(char *left_str, int fd)
 			return (NULL);
 		}
 		buffer[success_size] = '\0';
-		tmp = ft_strjoin(buffer, left_str);
+		tmp = ft_strjoin(buffer, left_strx);
 		if (!tmp)
 		{
 			free(buffer);
