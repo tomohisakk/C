@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Wed Jun 15 23:45:14 2022
+# Make data base, printed on Wed Jun 29 06:39:32 2022
 
 # Variables
 
@@ -51,11 +51,11 @@ VSCODE_CWD = /mnt/d/Apps/Microsoft VS Code
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
-PATH = /home/tomo/.vscode-server/bin/4af164ea3a06f701fe3e89a2bcbb421d2026b68f/bin/remote-cli:/home/tomo/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files/WindowsApps/CanonicalGroupLimited.Ubuntu_2004.4.4.0_x64__79rhkp1fndgsc:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Users/tomo/AppData/Local/Microsoft/WindowsApps:/mnt/d/Apps/Microsoft VS Code/bin:/snap/bin
+PATH = /home/tomo/.vscode-server/bin/30d9c6cd9483b2cc586687151bcbcd635f373630/bin/remote-cli:/home/tomo/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files/WindowsApps/CanonicalGroupLimited.Ubuntu_2004.4.4.0_x64__79rhkp1fndgsc:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Users/tomo/AppData/Local/Microsoft/WindowsApps:/mnt/d/Apps/Microsoft VS Code/bin:/snap/bin
 # environment
 VSCODE_LOG_STACK = false
 # environment
-VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-2e77c8fa-9e12-48fc-8403-4477bce57840.sock
+VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-8d2752de-1667-4107-a29e-c563609f6bf8.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -155,9 +155,9 @@ WSL_DISTRO_NAME = Ubuntu
 
 # Directories
 
-# . (device 2064, inode 43969): 6 files, no impossibilities.
+# . (device 2064, inode 43788): 7 files, no impossibilities.
 
-# 6 files, no impossibilities in 1 directories.
+# 7 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -207,12 +207,12 @@ GNUmakefile:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 14 / storage = 119 B / avg = 8 B
-# current buf: size = 8162 B / used = 119 B / count = 14 / avg = 8 B
+# strcache buffers: 1 (0) / strings = 15 / storage = 133 B / avg = 8 B
+# current buf: size = 8162 B / used = 133 B / count = 15 / avg = 8 B
 
-# strcache performance: lookups = 17 / hit rate = 17%
+# strcache performance: lookups = 18 / hit rate = 16%
 # hash-table stats:
-# Load=14/8192=0%, Rehash=0, Collisions=1/17=6%
-# Finished Make data base on Wed Jun 15 23:45:14 2022
+# Load=15/8192=0%, Rehash=0, Collisions=1/18=6%
+# Finished Make data base on Wed Jun 29 06:39:32 2022
 
  

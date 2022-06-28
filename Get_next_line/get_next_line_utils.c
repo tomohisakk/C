@@ -6,7 +6,7 @@
 /*   By: tomo <tomo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 03:40:17 by tomo              #+#    #+#             */
-/*   Updated: 2022/06/25 10:40:17 by tkawakam         ###   ########.fr       */
+/*   Updated: 2022/06/29 06:42:10 by tomo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ char	*ft_strchr(const char *str, int c)
 	return (NULL);
 }
 
-static char *connect_array(char const *s1, char const *s2, char *ans)
+static char	*connect_array(char const *s1, char const *s2, char *ans)
 {
 	size_t	i;
 	size_t	j;

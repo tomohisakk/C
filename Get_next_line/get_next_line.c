@@ -6,7 +6,7 @@
 /*   By: tomo <tomo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 00:07:31 by tomo              #+#    #+#             */
-/*   Updated: 2022/06/25 10:47:00 by tkawakam         ###   ########.fr       */
+/*   Updated: 2022/06/29 07:05:32 by tomo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static char	*compute_next_line(char *left_str)
 		i++;
 	str = malloc(sizeof(char) * (i + 2));
 	if (!str)
-		return(NULL);
+		return (NULL);
 	i = 0;
 	while (left_str[i])
 	{
@@ -59,7 +59,14 @@ static char	*compute_next_line(char *left_str)
 		i++;
 	}
 	str[i] = '\0';
-	return(str);
+	return (str);
+}
+
+static char	*_free(char *free1, char *free2)
+{
+	free(free1);
+	free(free2);
+	return (NULL);
 }
 
 static char	*compute_left_str(char *left_str, int fd)
@@ -75,21 +82,12 @@ static char	*compute_left_str(char *left_str, int fd)
 	while (!ft_strchr(left_str, '\n') && success_size != 0)
 	{
 		success_size = read(fd, buffer, BUFFER_SIZE);
-		if (success_size == -1 ||  (success_size == 0 && left_str[0] == '\0'))
-		{
-			free(buffer);
-			free(left_str);
-			return (NULL);
-		}
+		if (success_size == -1 || (success_size == 0 && left_str[0] == '\0'))
+			return (_free(left_str, buffer));
 		buffer[success_size] = '\0';
 		tmp = ft_strjoin(left_str, buffer);
 		if (!tmp)
-		{
-			free(buffer);
-			free(left_str);
-			return (NULL);
-		}
-		free(left_str);
+			return (_free(left_str, buffer));
 		left_str = tmp;
 	}
 	free(buffer);
@@ -113,7 +111,7 @@ char	*get_next_line(int fd)
 	if (!left_str)
 		return (NULL);
 	str = compute_next_line(left_str);
-	if(!str)
+	if (!str)
 	{
 		free(left_str);
 		return (NULL);
