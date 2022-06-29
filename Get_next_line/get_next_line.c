@@ -6,7 +6,7 @@
 /*   By: tomo <tomo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 00:07:31 by tomo              #+#    #+#             */
-/*   Updated: 2022/06/29 07:05:32 by tomo             ###   ########.fr       */
+/*   Updated: 2022/06/29 19:13:15 by tomo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ static char	*compute_next_line(char *left_str)
 	return (str);
 }
 
-static char	*_free(char *free1, char *free2)
+static char	*all_free(char *free1, char *free2)
 {
 	free(free1);
 	free(free2);
@@ -83,11 +83,12 @@ static char	*compute_left_str(char *left_str, int fd)
 	{
 		success_size = read(fd, buffer, BUFFER_SIZE);
 		if (success_size == -1 || (success_size == 0 && left_str[0] == '\0'))
-			return (_free(left_str, buffer));
+			return (all_free(buffer, left_str));
 		buffer[success_size] = '\0';
 		tmp = ft_strjoin(left_str, buffer);
 		if (!tmp)
-			return (_free(left_str, buffer));
+			return (all_free(buffer, left_str));
+		free(left_str);
 		left_str = tmp;
 	}
 	free(buffer);
@@ -124,7 +125,6 @@ char	*get_next_line(int fd)
 int main(void)
 {
 	int		fd;
-
 	//printf("okok\n");
 	fd = open("foo", O_RDONLY, 0);
 	//printf("fd: %d\n", fd);
